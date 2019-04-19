@@ -1,4 +1,4 @@
-const Store = {
+const FEATURES = {
   Processor: [
     {
       name: '17th Generation Intel Core HB (7 Core with donut spare)',
@@ -29,7 +29,7 @@ const Store = {
       cost: 1345
     }
   ],
-  "Display": [
+  Display: [
     {
       name: '15.6" UHD (3840 x 2160) 60Hz Bright Lights and Knobs',
       cost: 1500
@@ -40,5 +40,3 @@ const Store = {
     },
   ]
 };
-
-export default Store;

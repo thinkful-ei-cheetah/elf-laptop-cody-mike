@@ -1,39 +1,29 @@
-import React from 'react';
+import React, {Component} from 'react'
+import Feature from './Feature/Feature'
 
-function TechSpecs(props) {
-  // const features = Object.keys(props.features)
-  //   .map(key => {
-  //     const options = props.features[key].map((item, index) => {
-  //       const selectedClass = item.name === this.state.selected[key].name ? 'feature__selected' : '';
-  //       const featureClass = 'feature__option ' + selectedClass;
-  //       return (
-  //         <li key={index} className="feature__item">
-  //           <div className={featureClass}
-  //             onClick={e => this.updateFeature(key, item)}>
-  //               { item.name }
-  //               ({ new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD'})
-  //                 .format(item.cost) })
-  //           </div>
-  //         </li>
-  //       );
-  //     });
+class FeaturesList extends Component {
+  render() {
+    const {selected} = this.props;
 
-  //     return <div className="feature" key={key}>
-  //       <div className="feature__name">{key}</div>
-  //       <ul className="feature__list">
-  //         { options }
-  //       </ul>
-  //     </div>
-  //   });
+    const features = Object.keys(this.props.features)
+      .map(key => {
+        return (
+          <Feature 
+          name={key} 
+          key={key} 
+          options={this.props.features[key]} 
+          selected={selected}
+          onSelect={this.props.onSelect} />
+        )
+      })
 
-  return (
-    <div className="">
+    return (
       <section className="main__form">
         <h3>TECH SPECS AND CUSTOMIZATIONS</h3>
-        {props.features}
+        {features}
       </section>
-    </div>
-  )
+    )
+  }
 }
 
-export default TechSpecs;
+export default FeaturesList;
