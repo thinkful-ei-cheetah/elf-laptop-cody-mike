@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import ShoppingCart from './ShoppingCart/ShoppingCart';
-import Features from './Features/Features';
+import TechSpecs from './TechSpecs/TechSpecs';
 
 class App extends Component {
   constructor(props){
@@ -29,6 +29,7 @@ class App extends Component {
   }
 
   updateFeature(feature, newValue) {
+    console.log(feature)
     const selected = Object.assign({}, this.state.selected);
     selected[feature] = newValue;
     this.setState({
@@ -45,11 +46,11 @@ class App extends Component {
           <h5>Customize your laptop</h5>  
         </header>
         <main>
-        <Features
-            features={this.props.features} 
-            selected={this.state.selected}
-            onSelect={this.updateFeature}
-          />
+        <TechSpecs 
+        features= {this.props.features}
+        selected = {this.state.selected}
+        updateFeature={(a,b) => this.updateFeature(a,b)}
+        />
           <ShoppingCart selected={this.state.selected} />
         </main>
       </div>

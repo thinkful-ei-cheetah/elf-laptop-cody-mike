@@ -1,26 +1,24 @@
 import React, {Component} from 'react'
-import Feature from './Feature/Feature'
+import Features from '../Features/Features'
 
 class FeaturesList extends Component {
   render() {
     const {selected} = this.props;
-
-    const features = Object.keys(this.props.features)
-      .map(key => {
+    // console.log(this.props.features)
+    // const features = Object.keys(this.props.features)
+    //   .map(key => {
+    //     return (
+    //       )
+    //     })
+        
         return (
-          <Feature 
-          name={key} 
-          key={key} 
-          options={this.props.features[key]} 
-          selected={selected}
-          onSelect={this.props.onSelect} />
-        )
-      })
-
-    return (
-      <section className="main__form">
-        <h3>TECH SPECS AND CUSTOMIZATIONS</h3>
-        {features}
+          <section className="main__form">
+        <h3>TECH SPECS AND CUSTOMIZATIONS</h3>   
+        <Features  
+        features={this.props.features} 
+        selected={selected}
+        updateFeature = {this.props.updateFeature}
+        onSelect={this.props.onSelect} />
       </section>
     )
   }
