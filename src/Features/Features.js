@@ -25,8 +25,9 @@ class Features extends Component {
           </ul>
         </div>
   })
+
   return <div>{features}</div>
- }
+  }
 }
 
 export default Features;
